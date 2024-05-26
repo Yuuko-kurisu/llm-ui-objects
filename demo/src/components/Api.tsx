@@ -3,7 +3,8 @@ import { GenerationProps } from "llm-ui-objects";
 var key: { value: string } = { value: "" };
 
 const generate = (system: string, input: string | string[], parameters: any) => {
-    var url = "https://api.openai.com/v1/chat/completions";
+    // var url = "https://api.openai.com/v1/chat/completions";
+    var url = "https://kurisu-gpt35.openai.azure.com";
     var bearer = 'Bearer ' + key.value;
 
     if(typeof input === 'string') input = [input];
@@ -46,7 +47,8 @@ const generate = (system: string, input: string | string[], parameters: any) => 
 };
 
 const getPositions = async (generations: GenerationProps[]) => {
-    var url = "https://api.openai.com/v1/embeddings";
+    var url = "https://kurisu-gpt35.openai.azure.com";
+    // var url = "https://api.openai.com/v1/embeddings";
     var bearer = 'Bearer ' + key.value;
 
     if(generations.length === 0) return Promise.resolve([]);
